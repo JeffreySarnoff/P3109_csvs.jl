@@ -24,7 +24,11 @@ function csv_filepath(; bits::Int, suffix::String, base::Int)
     end
 
     filestr = string("binary", bits, suffix, ext)
-    abspath(joinpath(super_dir, filestr))
+    pth = abspath(joinpath(super_dir, filestr))
+    if !isfile(pth)
+        error("$(pth) is not a file")
+    end
+    pth
 end
 
 function csv_super_dir(suffix::String, base::Int)
