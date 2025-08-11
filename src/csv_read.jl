@@ -2,15 +2,12 @@ function read_P3109_csv(filepath)
     stripstr(x) = strip(string(x))
   
     checkfile(filepath)
-    csv = CSV.read(filepath, columntable)
+    csv = CSV.read(filepath, columntable; types=String)
     colstrs = map(stripstr, keys(csv))
     colsyms  = Symbol.(colstrs)
 
     codesym = colsyms[1]
     codepoints = encoding(csv)
-
-    colstrs = colstrs[2:end]
-    colsyms = colsyms[2:end]
 
     datastrvecs = values(csv)[2:end]
     datastrvecs = map(x->map(stripstr,x), datastrvecs)
@@ -34,7 +31,7 @@ function valuedata(datastrs)
         if occursin("e", str)
             xpstr = split(str, 'e')[2]
             xp = Base.parse(Int, xpstr)
-            if xp < exponent(floatmin(Float64))
+            if xp < -307
                 map(BigFloat, datastrs)
             else
                 map(x->Base.parse(Float64, x), datastrs)
