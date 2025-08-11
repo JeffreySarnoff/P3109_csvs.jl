@@ -28,7 +28,7 @@ Before you start, you need:
 
     - (any time you want to read the csv files), start Julia, type
     
-    ENV["P3109_CSV_FILES"] = s"<full directory path to ./P3109>"
+    ENV["P3109_CSV_DIR"] = s"<full directory path to ./P3109>"
 
     
     
