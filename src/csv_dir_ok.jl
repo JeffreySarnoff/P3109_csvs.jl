@@ -5,7 +5,7 @@ const SE = (relpath = joinpath("signed", "extended"),   suffix = "se", signed=tr
 
 from_suffix = Dict( ["uf", "ue", "sf", "se"] .=> [UF, UE, SF, SE])
 
-function confirm_csv_env()
+function confirm_csv_dir()
     csv_dir = get(ENV, "P3109_CSV_DIR", nothing)
     if isnothing(csv_dir)
         error("""ENV["P3109_CSV_DIR"] is not set""")
