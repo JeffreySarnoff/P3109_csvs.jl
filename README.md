@@ -2,9 +2,10 @@
 Support for reading P3109 value tables stored as .csv files.
 
 Before you start, you need:
-   (a) the zipped csv files of interest, and to unzip them
-   (b) Julia and to the Julia packages Tables, CSV
-   (c) to let Juia know where the unzipped csv files to reside
+- The zipped csv files of interest, and to unzip them
+- Julia
+- the Julia packages Tables, CSV
+- to let Juia know where the unzipped csv files to reside
 
 (a) obtain the zipped csv files of interest, and unzip them
 
@@ -17,4 +18,9 @@ Before you start, you need:
                    
       mac, linux:  in a shell
                    curl -fsSL https://install.julialang.org | sh -s -- -y
+    
+(c) get the Julia packages Tables, CSV
+    - run Julia, copy+paste:
+    using Pkg; Pkg.add(["Tables", "CSV"])
+    
     
