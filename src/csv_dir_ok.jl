@@ -15,7 +15,20 @@ function confirm_csv_env()
     end
 end
 
-function csv_super_dir(suffix, base)
+function csv_file(bitwidth::Int, suffix::String, base::Int)
+    super_dir = csv_super_dir(suffix, base)
+    info = from_suffix[suffix]
+    if base == 10
+        ext = ".dec.csv"
+    else
+        ext = ".hex.csv"
+    end
+
+    filestr = string("binary", bitwidth, "s", ext)
+    abspath(joinpath(super_dir, filestr))
+end
+
+function csv_super_dir(suffix::String, base::Int)
     if !(suffix in ("uf", "ue", "sf", "se"))
         error("""suffix must be one of {"uf", "ue", "sf", "se"}""")
     end
@@ -23,10 +36,8 @@ function csv_super_dir(suffix, base)
         error("base must be 10 or 16")
     end
     if base == 10
-        ext = ".dec.csv"
         subdir = "decimal"
     else
-        ext = ".hex.csv"
         subdir = "hexadecimal"
     end
 
