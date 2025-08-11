@@ -20,6 +20,8 @@ Before you start, you need:
                    curl -fsSL https://install.julialang.org | sh -s -- -y
     
 (c) get the Julia packages Tables, CSV
-    - run Julia, copy+paste: using Pkg; Pkg.add(["Tables", "CSV"])
+    - run Julia, copy+paste:
+    
+    using Pkg; Pkg.add(["Tables", "CSV"])
     
     
