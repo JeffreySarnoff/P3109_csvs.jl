@@ -17,14 +17,13 @@ end
 
 function csv_filepath(; bits::Int, suffix::String, base::Int)
     super_dir = csv_super_dir(suffix, base)
-    info = from_suffix[suffix]
     if base == 10
         ext = ".dec.csv"
     else
         ext = ".hex.csv"
     end
 
-    filestr = string("binary", bits, "s", ext)
+    filestr = string("binary", bits, suffix, ext)
     abspath(joinpath(super_dir, filestr))
 end
 
