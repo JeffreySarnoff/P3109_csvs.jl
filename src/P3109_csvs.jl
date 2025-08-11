@@ -4,6 +4,10 @@ using Tables
 using Tables: columntable
 using CSV
 
+macro assign(var, val)
+    :($(esc(var)) = $(esc(val)))
+end
+
 include("csv_dir_ok.jl")
 confirm_csv_dir()
 
