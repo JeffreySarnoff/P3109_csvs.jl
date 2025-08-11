@@ -29,8 +29,6 @@ Before you start, you need:
     
     ENV["P3109_CSV_FILES"] = s"<full directory path to ./P3109>"
 
-    - you can put this line in a file called startup.jl
-      and store that file in 
     
     
     
