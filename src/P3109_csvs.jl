@@ -4,9 +4,22 @@ using Tables
 using Tables: columntable
 using CSV
 
-macro assign(var, val)
+macro assignvar(var, val)
     :($(esc(:($var))) = $val)
 end
+
+macro assignsym(sym, val)
+    esc(:( $(sym) = $(val) ))
+end
+
+macro assign(target, val)
+    if isa(target, Symbol)
+        @assignsym(target, val)
+    else
+        @assignvar(target, val)
+    end
+end
+
 
 include("csv_dir_ok.jl")
 confirm_csv_dir()
