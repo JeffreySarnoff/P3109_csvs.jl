@@ -25,6 +25,7 @@ Before you start, you need:
     using Pkg; Pkg.add(["Tables", "CSV", "P3109_csvs"])
     
 (d) let Julia know where the unzipped csv files reside (e.g. "/data/P3109")
+
     - (any time you want to read the csv files), start Julia, type
     
     ENV["P3109_CSV_FILES"] = s"<full directory path to ./P3109>"
