@@ -10,12 +10,11 @@ Before you start, you need:
 
 (b) if Julia is not installed on your system
     - get JuliaUp (which installs the current stable release of Julia)
-    ```
+
       windows:     in a terminal
                    winget install --name Julia --id 9NJNWW8PVKMN -e -s msstore
                    (when prompted, select add to PATH)
                    
       mac, linux:  in a shell
                    curl -fsSL https://install.julialang.org | sh -s -- -y
-    ```
     
