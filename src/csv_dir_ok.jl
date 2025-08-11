@@ -15,7 +15,7 @@ function confirm_csv_env()
     end
 end
 
-function csv_filepath(bitwidth::Int, suffix::String, base::Int)
+function csv_filepath(; bits::Int, suffix::String, base::Int)
     super_dir = csv_super_dir(suffix, base)
     info = from_suffix[suffix]
     if base == 10
@@ -24,7 +24,7 @@ function csv_filepath(bitwidth::Int, suffix::String, base::Int)
         ext = ".hex.csv"
     end
 
-    filestr = string("binary", bitwidth, "s", ext)
+    filestr = string("binary", bits, "s", ext)
     abspath(joinpath(super_dir, filestr))
 end
 
