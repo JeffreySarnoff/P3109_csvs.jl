@@ -5,7 +5,7 @@ using Tables: columntable
 using CSV
 
 macro assign(var, val)
-    :($(esc(var)) = $(esc(val)))
+    :($(esc(:($var))) = $val)
 end
 
 include("csv_dir_ok.jl")
