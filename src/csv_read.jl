@@ -6,7 +6,7 @@ function readP3109csv(filepath)
     colnames = map(stripstr, keys(csv))
     colsyms  = Symbol.(colnames)
     encodingname = colsyms[1]
-    codepoints = (; $encodignname = encoding(csv))
+    codepoints = @assign( encodingname (; $encodignname = encoding(csv))
     codestrs = map(stripstr, values(csv)[1])
     T = length(codestrs[1]) <= 4 ? UInt8 : UInt16
     encoding = map(x->Base.parse(T, x), codestrs)
