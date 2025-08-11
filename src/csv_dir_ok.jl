@@ -15,4 +15,24 @@ function confirm_csv_env()
     end
 end
 
-  
+function csv_super_dir(suffix, base)
+    if !(suffix in ("uf", "ue", "sf", "se"))
+        error("""suffix must be one of {"uf", "ue", "sf", "se"}""")
+    end
+    if !(base == 10 || base == 16)
+        error("base must be 10 or 16")
+    end
+    if base == 10
+        ext = ".dec.csv"
+        subdir = "decimal"
+    else
+        ext = ".hex.csv"
+        subdir = "hexadecimal"
+    end
+
+    info = from_suffix[suffix]
+    abspath(joinpath(ENV["P3109_CSV_DIR"], subdir, info.relpath))
+end
+
+    
+    
