@@ -1,4 +1,4 @@
-function readP3109csv(filepath)
+function read_P3109_csv(filepath)
     stripstr(x) = strip(string(x))
   
     checkfile(filepath)
@@ -23,7 +23,8 @@ end
 function valuedata(datastrs)
     str = datastrs[2]
     if str[2] == 'x'
-        xp = Meta.parse(split(str,'p')[2])
+        xpstr = split(str,'p')[2]
+        xp = Base.parse(Int, xpstr)
         if xp < exponent(floatmin(Float64))
             map(BigFloat, datastrs)
         else
@@ -31,7 +32,8 @@ function valuedata(datastrs)
         end
     else
         if occursin("e", str)
-            xp = Meta.parse(split(str[2],'e')[2])
+            xpstr = split(str, 'e')[2]
+            xp = Base.parse(Int, xpstr)
             if xp < exponent(floatmin(Float64))
                 map(BigFloat, datastrs)
             else
